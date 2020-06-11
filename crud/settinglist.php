@@ -15,7 +15,7 @@
         $id_ = $id['id'];
         mysqli_query($connect, "UPDATE `users` SET `login` = '$new_login' WHERE `users`.`id` = '$id_'");
         mysqli_query($connect, "UPDATE `users` SET `password` = '$new_pass' WHERE `users`.`id` = '$id_'");
-        if($user_name == " "){}
+        if($user_name == ""){}
         else{
             mysqli_query($connect, "UPDATE `users` SET `name` = '$user_name' WHERE `users`.`id` = '$id_'");
             mysqli_query($connect, "UPDATE `users` SET `surname` = '$sur_name' WHERE `users`.`id` = '$id_'");
