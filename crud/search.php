@@ -23,10 +23,20 @@ function showUser(str) {
 
 <form>
 <select name="users" onchange="showUser(this.value)">
-  <option value="">Select a person:</option>
-  <option value="1">Bohdan Novickyi</option>
-  <option value="2">Stepan Nedrya</option>
-  <option value="3">Ivan Ivanov</option>
+    <?
+    require_once '../connect.php';
+
+    mysqli_select_db($connect,"ajax_demo");
+    $sql="SELECT * FROM `users`";
+    $result = mysqli_query($connect,$sql);
+
+    echo '<option value="">' .'Select a person'. '</option>';
+    while($row = mysqli_fetch_array($result)) {
+        echo '<option value="'. $row['id'].'">'.$row['name'] ." " .$row['surname'].'</option>';
+    }
+    var_dump($row['id']);
+    ?>
+
   </select>
 </form>
 <br>
