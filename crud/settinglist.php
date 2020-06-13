@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include_once ("../lang/lang.".$_SESSION['NowLang'].".php");
     require_once '../connect.php';
 
     $bad_login = $_POST['bad_login'];
@@ -13,11 +14,20 @@
     if (mysqli_num_rows($check_user) > 0){
         $id = mysqli_fetch_assoc($check_user);
         $id_ = $id['id'];
-        mysqli_query($connect, "UPDATE `users` SET `login` = '$new_login' WHERE `users`.`id` = '$id_'");
-        mysqli_query($connect, "UPDATE `users` SET `password` = '$new_pass' WHERE `users`.`id` = '$id_'");
-        if($user_name == ""){}
+        if($new_login == " "){}
+        else{
+            mysqli_query($connect, "UPDATE `users` SET `login` = '$new_login' WHERE `users`.`id` = '$id_'");
+        }
+        if($new_pass == " "){}
+        else{
+                mysqli_query($connect, "UPDATE `users` SET `password` = '$new_pass' WHERE `users`.`id` = '$id_'");
+        }
+        if($user_name == " "){}
         else{
             mysqli_query($connect, "UPDATE `users` SET `name` = '$user_name' WHERE `users`.`id` = '$id_'");
+        }
+        if($sur_name == " "){}
+        else{
             mysqli_query($connect, "UPDATE `users` SET `surname` = '$sur_name' WHERE `users`.`id` = '$id_'");
         }
 
@@ -33,7 +43,7 @@
     else{
         {
 
-            $_SESSION['msg1'] = 'Вы ввели неверный логин или пароль';
+            $_SESSION['msg1'] = $Lang['error'];
             header("Location: editlist.php");
         }
 

@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    include_once ("lang/lang.".$_SESSION['NowLang'].".php");
     include "roles/includes.php";
     require_once 'connect.php';
 
@@ -40,7 +41,7 @@
     }
     else
         {
-        $_SESSION['msg'] = 'Вы ввели неверный логин или пароль';
+        $_SESSION['msg'] = $Lang['error'];
         include "index.php";
         }
 

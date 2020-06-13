@@ -11,6 +11,12 @@ $Lang = array(
     "pass_new"	=> "New Password",
     "button_lan" => "Submit",
     "come_back" => "Come back",
+    "name" => "Your Name",
+    "surname" => "Your Surname",
+    "pass_conf" => "Password confirmation",
+    "error" => "You entered an incorrect username or password",
+    "accept" => "Registration completed successfully",
+    "reg" => "Sign up",
     /* Логин */
 
     "client"=> "Client",

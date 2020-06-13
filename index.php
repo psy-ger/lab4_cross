@@ -50,16 +50,22 @@ include_once ("lang/lang.".$CurentLang.".php");
         <input type="text" name="login">
         <label><? echo $Lang['pass_lan']?></label>
         <input type="password" name="password">
-        <button type="submit"><? echo $Lang['button_lan']?></button>
+        <button type="submit"><? echo $Lang['button_lan']?></button><a href="index.php?lang=ru"><img src="img/ru.png"></a>
+        <a href="index.php?lang=ua"><img src="img/ua.png"></a>
+        <a href="index.php?lang=en"><img src="img/en.png"></a>
+
         <?php
         if (isset($_SESSION['msg'])) {
             echo '<div>' . $_SESSION['msg'] . '</div>';
             unset($_SESSION['msg']);
         }
+
+        if (isset($_SESSION['msg2'])) {
+            echo '<div>' . $_SESSION['msg2'] . '</div>';
+            unset($_SESSION['msg2']);
+        }
         ?>
-        <a href="index.php?lang=ru"><img src="img/ru.png"></a>
-        <a href="index.php?lang=ua"><img src="img/ua.png"></a>
-        <a href="index.php?lang=en"><img src="img/en.png"></a>
     </form>
+    <a href="register/register.php"><? echo $Lang['reg']?></a>
 </body>
 </html>

@@ -15,15 +15,11 @@ th {text-align: left;}
 
 <?php
 $q = intval($_GET['q']);
+require_once '../connect.php';
 
-$con = mysqli_connect('localhost','root','','lab');
-if (!$con) {
-  die('Could not connect: ' . mysqli_error($con));
-}
-
-mysqli_select_db($con,"ajax_demo");
+mysqli_select_db($connect,"ajax_demo");
 $sql="SELECT * FROM `users` WHERE id = '$q'";
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($connect,$sql);
 
 echo "<table>
 <tr>
@@ -43,8 +39,7 @@ while($row = mysqli_fetch_array($result)) {
   echo "</tr>";
 }
 echo "</table>";
-mysqli_close($con);
+mysqli_close($connect);
 ?>
-<a href="crud.php">Come back</a>
 </body>
 </html>

@@ -4,6 +4,7 @@ class Admin  extends User
 {
     public function adminGreeting()
     {
+
         if($_SESSION['NowLang'] == "ru") {
             echo "Здравствуйте, Админ " . $this->name . " " . $this->surname . ". Вы можете на сайте изменять, удалять и создавать клиентов.";
             echo '<a href="../crud/crud.php">Продолжить</a>';
